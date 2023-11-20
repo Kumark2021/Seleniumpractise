@@ -5,6 +5,7 @@ import java.util.Date;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.firefox.FirefoxDriver;
 import org.testng.Assert;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
@@ -17,6 +18,15 @@ public class LoginNinja {
 	@BeforeMethod()
 	public void setup()
 	{
+		String browser="chrome";
+		if (browser.equalsIgnoreCase("chrome"))
+		{
+			driver =new ChromeDriver();
+		}
+		if (browser.equalsIgnoreCase("firefox"))
+		{
+			driver =new FirefoxDriver();
+		}
 		driver =new ChromeDriver();
 		//driver.manage().implicitlyWait(Duration.ofSeconds(20));
 		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(30));
